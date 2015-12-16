@@ -1,0 +1,2 @@
+WPF application cache file 
+Second line of file content

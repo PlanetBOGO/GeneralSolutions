@@ -1,0 +1,2 @@
+File content for WPF project
+Second line of file content
