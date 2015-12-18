@@ -1,34 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GeneralSolutions
 {
-    class SqlReaderProgram
+    class CSVProgram
     {
-        /// Requirement: App.Config to contain connection String named DefaultConnection
+        /// Requirement: App.Config has DefaultConnection connection string
         readonly static String connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
 
-        /// Requirement: Table "Item" in SQL database 
+        /// Requirement: SQL database has "Item" table
         private const string SelectAllQuery = "SELECT * FROM Item";        
         readonly static SqlListReaderModule<Item> reader = new SqlListReaderModule<Item> { Context = connectionString };
-
         private const string SelectCountQuery = "SELECT count(*) FROM Item;";
-        readonly static SqlValueReaderModule<int> valueReader = new SqlValueReaderModule<int> { Context = connectionString };
+                                
+        /// Requirement: CSV will be stored in file named CSVFile
+        const String CSVFile = "storage.csv";
 
-        readonly static TextWriterModule writer = new TextWriterModule { Context = Console.Out };
-
-        
         static void Main(string[] args)
         {
             PrintWelcomeMessage();            
             PrintNumberOfExpectedResults();
-
-            var list = ReadListFromDatabase();                        
-            PrintList(list);
+            var list = ReadListFromDatabase();
+            WriteCSVToFile(list);
+            list = ReadCSVFromFile();
+            PrintCSVToScreen(list);
 
             Console.ReadKey();
         }
@@ -39,13 +39,13 @@ namespace GeneralSolutions
                 "General Solutions command line tool\n" +
                 "Save table as CSV file\n\n";
 
-            writer.Write(welcome);
+            Console.Write(welcome);
         }
 
         private static void PrintNumberOfExpectedResults()
         {
             int n = GetRecordCount();
-            writer.Write(String.Format("{0} records in {1} table\n\n", n.ToString(), "dbo.[Item]"));
+            Console.Write("{0} records in {1} table\n\n", n.ToString(), "dbo.[Item]");
         }
 
         private static List<Item> ReadListFromDatabase()
@@ -55,16 +55,41 @@ namespace GeneralSolutions
             return reader.Read(sql);
         }
 
-        private static void PrintList(List<Item> list)
+        private static void WriteCSVToFile(List<Item> list)
+        {
+            using (TextWriter w = File.CreateText(CSVFile))
+            {
+                CSVWriterModule<Item> csv = new CSVWriterModule<Item>();
+                csv.Context = w;
+                csv.Write(list);
+            }
+        }
+
+        private static List<Item> ReadCSVFromFile()
+        {
+            using (TextReader r = File.OpenText(CSVFile))
+            {
+                CSVReaderModule<Item> csvReader = new CSVReaderModule<Item>();
+                csvReader.Context = r;
+                List<Item> list = csvReader.Read().ToList();
+
+                return list;
+            }
+        }
+
+        private static void PrintCSVToScreen(List<Item> list)
         {                        
-            CSVTextWriterModule<Item> csv = new CSVTextWriterModule<Item>();
+            CSVWriterModule<Item> csv = new CSVWriterModule<Item>();
             csv.Context = Console.Out;
             csv.Write(list);
+            Console.Out.WriteLine();
         }
 
         private static int GetRecordCount()
         {
             SqlQuery sqlCount = new SqlQuery { Query = SelectCountQuery };
+            SqlValueReaderModule<int> valueReader = new SqlValueReaderModule<int> { Context = connectionString };
+
             return valueReader.Read(sqlCount);
         }
 

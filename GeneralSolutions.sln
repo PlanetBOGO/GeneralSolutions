@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralSolutions", "GeneralSolutions\GeneralSolutions.csproj", "{734EF9D5-A1FD-4F20-94DA-7C97F35AB319}"
 EndProject
@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralSolution.Assembly", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralSolutions.Net", "GeneralSolutions.Networking\GeneralSolutions.Net.csproj", "{D82E02CF-01BD-46C5-923A-C030755C55D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralSolutions.Sql", "GeneralSolutions.Data\GeneralSolutions.Sql.csproj", "{D346C02A-D62B-424A-A1EB-DE7EBFADE8D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralSolutions.Sql", "GeneralSolutions.Sql\GeneralSolutions.Sql.csproj", "{D346C02A-D62B-424A-A1EB-DE7EBFADE8D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralSolutions.Core.Test", "GeneralSolutions.Data.Test\GeneralSolutions.Core.Test.csproj", "{3477539B-6BE0-4A34-A38F-B2CBA223ED1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralSolutions.Sql.Test", "GeneralSolutions.Sql.Test\GeneralSolutions.Sql.Test.csproj", "{3477539B-6BE0-4A34-A38F-B2CBA223ED1B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralSolutions.EF", "GeneralSolutions.EF\GeneralSolutions.EF.csproj", "{4E59AA2E-FAA4-4A33-9A25-1B6C813C5668}"
 EndProject

@@ -58,7 +58,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>GeneralSolutions.ProgramDownload</StartupObject>
+    <StartupObject>GeneralSolutions.CSVProgram</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -81,9 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProgramDownload.cs" />
-    <Compile Include="StorageItem.cs" />
-    <Compile Include="XMLWriterProgram.cs" />
+    <Compile Include="YoutubeDownloader.cs" />
+    <Compile Include="ItemDTO.cs" />
+    <Compile Include="XMLProgram.cs" />
     <Compile Include="ProgramNorthwind.cs" />
     <Compile Include="ReportWriter.cs" />
     <Compile Include="DataAccessProgram.cs" />
@@ -94,7 +94,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SqlReaderProgram.cs" />
+    <Compile Include="CSVProgram.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -119,7 +119,7 @@
       <Project>{5dbf345b-326b-4d06-890b-09b9be4f5d0d}</Project>
       <Name>GeneralSolutions.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GeneralSolutions.Data\GeneralSolutions.Sql.csproj">
+    <ProjectReference Include="..\GeneralSolutions.Sql\GeneralSolutions.Sql.csproj">
       <Project>{d346c02a-d62b-424a-a1eb-de7ebfade8d1}</Project>
       <Name>GeneralSolutions.Sql</Name>
     </ProjectReference>

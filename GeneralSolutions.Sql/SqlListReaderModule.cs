@@ -57,19 +57,22 @@ namespace GeneralSolutions
                 Type columnType = SqlReader.GetFieldType(i);
 
                 PropertyInfo matchingProperty = properties.FirstOrDefault(
-                    p => p.Name.Equals(column, StringComparison.InvariantCultureIgnoreCase) &&
-                         p.PropertyType.IsAssignableFrom(columnType)
+                    p => p.Name.Equals(column, StringComparison.InvariantCultureIgnoreCase)                         
                 );
 
                 if (matchingProperty != null)
                 {
-                    if (!SqlReader.IsDBNull(i))
+                    if (matchingProperty.PropertyType.IsAssignableFrom(columnType))
                     {
-                        Object value = SqlReader.GetValue(i);
-                        matchingProperty.SetValue(item, value);
+                        if (!SqlReader.IsDBNull(i))
+                        {
+                            Object value = SqlReader.GetValue(i);
+                            matchingProperty.SetValue(item, value);
+                        }
                     }
                 }
             }
+
             return item;
         }
     }

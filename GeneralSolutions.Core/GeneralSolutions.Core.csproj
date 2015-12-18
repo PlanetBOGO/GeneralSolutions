@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSVTextWriterModule.cs" />
+    <Compile Include="CSVReaderModule.cs" />
+    <Compile Include="CSVWriterModule.cs" />
     <Compile Include="ICollectionReader.cs" />
+    <Compile Include="IDataReader.cs" />
+    <Compile Include="IDataWriter.cs" />
     <Compile Include="ITextReader.cs" />
     <Compile Include="ICollectionWriter.cs" />
     <Compile Include="ITextWriter.cs" />
@@ -55,6 +58,7 @@
     <Compile Include="TextFileWriterModule.cs" />
     <Compile Include="TextReaderModule.cs" />
     <Compile Include="TextWriterModule.cs" />
+    <Compile Include="XMLFileReaderModule.cs" />
     <Compile Include="XMLFileWriterModule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

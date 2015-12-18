@@ -61,7 +61,7 @@
       <Project>{5dbf345b-326b-4d06-890b-09b9be4f5d0d}</Project>
       <Name>GeneralSolutions.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GeneralSolutions.Data\GeneralSolutions.Sql.csproj">
+    <ProjectReference Include="..\GeneralSolutions.Sql\GeneralSolutions.Sql.csproj">
       <Project>{d346c02a-d62b-424a-a1eb-de7ebfade8d1}</Project>
       <Name>GeneralSolutions.Sql</Name>
     </ProjectReference>

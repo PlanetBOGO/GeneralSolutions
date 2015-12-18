@@ -8,8 +8,18 @@ using System.Xml.Serialization;
 
 namespace GeneralSolutions
 {
-    public class XMLFileWriterModule<InputType> : ModuleBase<String>
+    public class XMLFileWriterModule<InputType> : ModuleBase<String>, IDataWriter<ICollection<InputType>>
     {
+        public XMLFileWriterModule()
+        {
+
+        }
+
+        public XMLFileWriterModule(String fileName) : this()
+        {
+            Context = fileName;
+        }
+
         public void Write(ICollection<InputType> list)
         {
             if (Context != null)

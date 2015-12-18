@@ -9,6 +9,16 @@ namespace GeneralSolutions
 {
     public class TextFileReaderModule : ModuleBase<String>, ITextReader     
     {        
+        public TextFileReaderModule()
+        {
+
+        }
+
+        public TextFileReaderModule(String fileName) : this()
+        {
+            Context = fileName;
+        }
+
         public String Read()
         {
             String text = File.ReadAllText(Context);

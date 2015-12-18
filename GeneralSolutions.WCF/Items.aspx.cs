@@ -24,5 +24,13 @@ namespace GeneralSolutions.WCF
                 GridView1.DataBind();
             }
         }
+
+        private void Expertiment(Item item)
+        {
+            String s = item.Color;
+            String color = (String)s.Clone();
+            item.Color = color;
+            int result = db.SaveChanges();
+        }
     }
 }
