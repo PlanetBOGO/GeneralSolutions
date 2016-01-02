@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
-
+//Documentation Needed
 namespace GeneralSolutions
 {
     public class SqlListReaderModule<OutputType> : SqlModuleBase<List<OutputType>>
