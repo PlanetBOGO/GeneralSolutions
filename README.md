@@ -2,4 +2,4 @@
 
 Module based architecture
 
-General Solutions
+General Solutions is a module based library for common tasks written in C#.
