@@ -115,6 +115,10 @@
       <Project>{9c9a260a-df13-4b53-a2b8-52e31dfa1ece}</Project>
       <Name>GeneralSolution.Assembly</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GeneralSolutions.Collections\GeneralSolutions.Collections.csproj">
+      <Project>{23bedc58-8bb7-426a-a1fb-23ae3415784d}</Project>
+      <Name>GeneralSolutions.Collections</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GeneralSolutions.Core\GeneralSolutions.Core.csproj">
       <Project>{5dbf345b-326b-4d06-890b-09b9be4f5d0d}</Project>
       <Name>GeneralSolutions.Core</Name>

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using GeneralSolutions.Collections;
 
 namespace GeneralSolutions
 {
@@ -31,6 +32,9 @@ namespace GeneralSolutions
             browser.Open("http://www.microsoft.com");
 
             fileWriter.Write(String.Format("{0} - Program stopped\n", DateTime.Now));
+
+            BinaryTreeExample bte = new BinaryTreeExample();
+
             Console.ReadKey();
         }
 
